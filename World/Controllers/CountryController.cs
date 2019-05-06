@@ -11,14 +11,21 @@ namespace World.Controllers
     public ActionResult Index()
     {
 
-      List<Country> countriesList = Country.GetAll();
-      return View(countriesList);
+      List<Country> allCountry = Country.GetAll();
+      return View(allCountry);
     }
 
     [HttpGet("/country/new")]
     public ActionResult New()
     {
       return View();
+    }
+
+    [HttpPost("/country")]
+    public ActionResult Create(string userContinent)
+    {
+      List<Country> countriesShortenedList = Country.GetContinent(userContinent);
+      return RedirectToAction("Index");
     }
   }
 }
