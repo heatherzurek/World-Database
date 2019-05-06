@@ -21,11 +21,11 @@ namespace World.Controllers
       return View();
     }
 
-    [HttpPost("/country")]
+    [HttpPost("/country/{userContinent}")]
     public ActionResult Create(string userContinent)
     {
       List<Country> countriesShortenedList = Country.GetContinent(userContinent);
-      return RedirectToAction("Index");
+      return View("Index", countriesShortenedList);
     }
   }
 }

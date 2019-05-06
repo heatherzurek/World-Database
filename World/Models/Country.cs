@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using MySql.Data.MySqlClient;
+using System;
 
 namespace World.Models
 
@@ -49,11 +50,12 @@ namespace World.Models
     }
     public static List<Country> GetContinent(string userContinent)
     {
+      Console.WriteLine(userContinent);
 
       MySqlConnection conn = DB.Connection();
       conn.Open();
       MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
-      cmd.CommandText = @"SELECT * FROM country WHERE Continent = '+ userContinent';";
+      cmd.CommandText = @"SELECT * FROM country WHERE Continent = '"+ userContinent+"';";
       MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
       while(rdr.Read())
       {
