@@ -78,5 +78,10 @@ namespace World.Models
       return allCountry;
     }
 
+    // public static void ClearAll()
+    // {
+    //   allCountry.Clear();
+    // }
+
   }
 }
