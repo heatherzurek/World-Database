@@ -1,0 +1,26 @@
+@using World.Models;
+@using MySql.Data.MySqlClient;
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="~/css/styles.css" />
+  <title>World</title>
+</head>
+<body>
+
+  <ul>
+    @foreach (City city in Model)
+    {
+      <li>
+      @city.Name
+      <br>
+      @city.Population
+      </li>
+    }
+  </ul>
+
+  @* <a href="/world/new">Check another word</a> *@
+</body>
+</html>
